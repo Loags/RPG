@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FieldOfView : MonoBehaviour
 {
-    private SM_EnemyController SM_EnemyController;
+    private EnemyController SM_EnemyController;
 
     [Header("FOV Settings")]
     public float fieldOfViewDegrees; // Has to be public for editor script
@@ -25,7 +25,7 @@ public class FieldOfView : MonoBehaviour
 
     private void Awake()
     {
-        SM_EnemyController = GetComponent<SM_EnemyController>();
+        SM_EnemyController = GetComponent<EnemyController>();
     }
 
     private void Start()

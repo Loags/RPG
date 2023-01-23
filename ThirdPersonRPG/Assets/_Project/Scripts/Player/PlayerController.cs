@@ -18,12 +18,12 @@ public enum CharacterFlowState
     DEAD
 }
 
-public class SM_CharacterController : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
-    public static SM_CharacterController playerInstance;
-    [HideInInspector] public SM_CharacterMovement SM_CharacterMovement;
-    [HideInInspector] public SM_CharacterAttack SM_CharacterAttack;
-    [HideInInspector] public SM_CharacterInteraction SM_CharacterInteraction;
+    public static PlayerController instance;
+    [HideInInspector] public PlayerMovement PlayerMovement;
+    [HideInInspector] public PlayerAttack PlayerAttack;
+    [HideInInspector] public PlayerInteraction PlayerInteraction;
     [HideInInspector] public PlayerStats PlayerStats;
 
     [HideInInspector] public MonoBehaviour myMonoBehaviour;
@@ -32,13 +32,13 @@ public class SM_CharacterController : MonoBehaviour
     private float m_XAxisMaxSpeed;
 
 
-    private void Awake() { if (playerInstance == null) playerInstance = this; }
+    private void Awake() { if (instance == null) instance = this; }
 
     private void Start()
     {
-        SM_CharacterMovement = GetComponent<SM_CharacterMovement>();
-        SM_CharacterAttack = GetComponent<SM_CharacterAttack>();
-        SM_CharacterInteraction = GetComponentInChildren<SM_CharacterInteraction>();
+        PlayerMovement = GetComponent<PlayerMovement>();
+        PlayerAttack = GetComponent<PlayerAttack>();
+        PlayerInteraction = GetComponentInChildren<PlayerInteraction>();
         PlayerStats = GetComponent<PlayerStats>();
         myMonoBehaviour = GetComponent<MonoBehaviour>();
     }

@@ -3,9 +3,9 @@ using UnityEngine;
 using Manager_Coroutine;
 using System.Collections;
 
-public class SM_CharacterInteraction : MonoBehaviour
+public class PlayerInteraction : MonoBehaviour
 {
-    private SM_CharacterController sm_CharacterController;
+    private PlayerController sm_CharacterController;
 
     public Interactable currentInteractable;
     [SerializeField] private List<Interactable> potentialInteractables = new();
@@ -13,7 +13,7 @@ public class SM_CharacterInteraction : MonoBehaviour
 
     private IEnumerator Start()
     {
-        sm_CharacterController = GetComponentInParent<SM_CharacterController>();
+        sm_CharacterController = GetComponentInParent<PlayerController>();
         yield return new WaitForEndOfFrame();
         CoroutineManager.InitializeCoroutine(ref updateTargetCoroutine, UpdateCurrentTarget(), sm_CharacterController.myMonoBehaviour);
     }

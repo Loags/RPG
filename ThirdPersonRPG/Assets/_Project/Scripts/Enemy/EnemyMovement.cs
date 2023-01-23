@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class SM_EnemyMovement : MonoBehaviour
+public class EnemyMovement : MonoBehaviour
 {
-    private SM_EnemyController SM_EnemyController;
+    private EnemyController EnemyController;
 
     public float walkSpeed;
     public float sprintSpeed;
@@ -30,18 +30,18 @@ public class SM_EnemyMovement : MonoBehaviour
     private Coroutine idleAtPatrolPoint;
     private Coroutine setPatrolPointCoroutine;
 
-    private void Awake() { SM_EnemyController = GetComponent<SM_EnemyController>(); }
+    private void Awake() { EnemyController = GetComponent<EnemyController>(); }
 
     private void OnEnable()
     {
-        SM_EnemyController.OnEnemyContentStateChanged += AdjustMovementSpeed;
-        SM_EnemyController.OnEnemyContentStateChanged += ResetIdleCoroutine;
+        EnemyController.OnEnemyContentStateChanged += AdjustMovementSpeed;
+        EnemyController.OnEnemyContentStateChanged += ResetIdleCoroutine;
     }
 
     private void OnDisable()
     {
-        SM_EnemyController.OnEnemyContentStateChanged -= AdjustMovementSpeed;
-        SM_EnemyController.OnEnemyContentStateChanged -= ResetIdleCoroutine;
+        EnemyController.OnEnemyContentStateChanged -= AdjustMovementSpeed;
+        EnemyController.OnEnemyContentStateChanged -= ResetIdleCoroutine;
     }
 
     private void Start()
@@ -51,38 +51,38 @@ public class SM_EnemyMovement : MonoBehaviour
         {
             for (int i = 0; i < amountPatrolPoints; i++)
                 patrolPoints.Add(Vector3.zero);
-            SM_EnemyController.InitializeCoroutine(ref setPatrolPointCoroutine, SetPatrolPoints());
+            EnemyController.InitializeCoroutine(ref setPatrolPointCoroutine, SetPatrolPoints());
         }
-        SM_EnemyController.InitializeCoroutine(ref idleAtPatrolPoint, IdleAtPatrolPoint());
+        EnemyController.InitializeCoroutine(ref idleAtPatrolPoint, IdleAtPatrolPoint());
     }
 
     public void ChaseEnemy()
     {
-        Vector3 enemyPos = SM_EnemyController.SM_EnemyTargeting.currentTarget.transform.position;
-        SM_EnemyController.SetDestination(enemyPos);
+        Vector3 enemyPos = EnemyController.SM_EnemyTargeting.currentTarget.transform.position;
+        EnemyController.SetDestination(enemyPos);
 
-        if (Vector3.Distance(this.transform.position, enemyPos) > SM_EnemyController.NavMeshAgent.stoppingDistance) return;
+        if (Vector3.Distance(this.transform.position, enemyPos) > EnemyController.NavMeshAgent.stoppingDistance) return;
 
-        if (SM_EnemyController.GetCurrentContentState() != EnemyContentState.ATTACK)
-            SM_EnemyController.ChangeContentState(EnemyContentState.ATTACK);
+        if (EnemyController.GetCurrentContentState() != EnemyContentState.ATTACK)
+            EnemyController.ChangeContentState(EnemyContentState.ATTACK);
 
     }
 
     public void Patrol()
     {
-        SM_EnemyController.SetDestination(targetPoint);
+        EnemyController.SetDestination(targetPoint);
         float distanceToTargetPoint = Vector2.Distance(new Vector2(this.transform.position.x, this.transform.position.z), new Vector2(targetPoint.x, targetPoint.z));
-        if (distanceToTargetPoint <= SM_EnemyController.NavMeshAgent.stoppingDistance)
+        if (distanceToTargetPoint <= EnemyController.NavMeshAgent.stoppingDistance)
         {
             if (idleAtPatrolPoint != null) return; // return when the Coroutine has already started
 
-            SM_EnemyController.InitializeCoroutine(ref idleAtPatrolPoint, IdleAtPatrolPoint());
+            EnemyController.InitializeCoroutine(ref idleAtPatrolPoint, IdleAtPatrolPoint());
         }
     }
 
     private IEnumerator IdleAtPatrolPoint()
     {
-        SM_EnemyController.ChangeContentState(EnemyContentState.IDLE);
+        EnemyController.ChangeContentState(EnemyContentState.IDLE);
         yield return new WaitForSeconds(timeAtPatrolPoint);
         ChooseTargetPoint();
         idleAtPatrolPoint = null;
@@ -104,7 +104,7 @@ public class SM_EnemyMovement : MonoBehaviour
         }
 
         CleanUpPatrolPoints();
-        SM_EnemyController.TerminateCoroutine(ref setPatrolPointCoroutine, SetPatrolPoints());
+        EnemyController.TerminateCoroutine(ref setPatrolPointCoroutine, SetPatrolPoints());
     }
 
     // Workaround
@@ -151,7 +151,7 @@ public class SM_EnemyMovement : MonoBehaviour
 
     private bool IsPatrolPointValid(Vector3 _position, int _index)
     {
-        if (!SM_EnemyController.CheckDestinationValid(_position)) return false;
+        if (!EnemyController.CheckDestinationValid(_position)) return false;
 
         bool isValid = true;
         foreach (Vector3 vector3 in patrolPoints) // Check if the points have their min distance
@@ -173,7 +173,7 @@ public class SM_EnemyMovement : MonoBehaviour
         if (previousTargetPoint == patrolPoints[randomIndex])
             ChooseTargetPoint(); // Restart func until u have a different target point
 
-        SM_EnemyController.ChangeContentState(EnemyContentState.PATROL);
+        EnemyController.ChangeContentState(EnemyContentState.PATROL);
         previousTargetPoint = targetPoint;
         targetPoint = patrolPoints[randomIndex];
     }
@@ -196,14 +196,14 @@ public class SM_EnemyMovement : MonoBehaviour
 
     private void ResetIdleCoroutine()
     {
-        if (SM_EnemyController.GetPreviousContentState() == EnemyContentState.IDLE && SM_EnemyController.GetCurrentContentState() != EnemyContentState.IDLE)
-            SM_EnemyController.TerminateCoroutine(ref idleAtPatrolPoint, IdleAtPatrolPoint());
+        if (EnemyController.GetPreviousContentState() == EnemyContentState.IDLE && EnemyController.GetCurrentContentState() != EnemyContentState.IDLE)
+            EnemyController.TerminateCoroutine(ref idleAtPatrolPoint, IdleAtPatrolPoint());
     }
 
     #region EffectPublicVars
     private void AdjustMovementSpeed()
     {
-        switch (SM_EnemyController.GetCurrentContentState())
+        switch (EnemyController.GetCurrentContentState())
         {
             case EnemyContentState.IDLE:
                 SetMovementSpeed(walkSpeed);
@@ -221,7 +221,7 @@ public class SM_EnemyMovement : MonoBehaviour
     public void SetMovementSpeed(float _value)
     {
         walkSpeed = _value;
-        SM_EnemyController.NavMeshAgent.speed = walkSpeed;
+        EnemyController.NavMeshAgent.speed = walkSpeed;
     }
     #endregion EffectPublicVars
 

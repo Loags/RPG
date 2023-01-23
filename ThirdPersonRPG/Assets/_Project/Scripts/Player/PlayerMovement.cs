@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SM_CharacterMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     public CharacterController characterController;
     private Transform cam;

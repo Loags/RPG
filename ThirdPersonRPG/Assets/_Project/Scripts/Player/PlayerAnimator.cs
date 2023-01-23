@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SM_CharacterAnimator : MonoBehaviour
+public class PlayerAnimator : MonoBehaviour
 {
     const float locomotionAnimationSmoothTime = 0.1f;
 
@@ -13,7 +13,7 @@ public class SM_CharacterAnimator : MonoBehaviour
 
     void Update()
     {
-        float speedPercent = SM_CharacterController.playerInstance.SM_CharacterMovement.currentSpeed / SM_CharacterController.playerInstance.SM_CharacterMovement.maxSpeed;
+        float speedPercent = PlayerController.instance.PlayerMovement.currentSpeed / PlayerController.instance.PlayerMovement.maxSpeed;
         animator.SetFloat("speedPercent", speedPercent, locomotionAnimationSmoothTime, Time.deltaTime);
     }
 }

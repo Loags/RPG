@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SM_EnemyHitBox : MonoBehaviour
+public class EnemyHitBox : MonoBehaviour
 {
-    private SM_EnemyController SM_EnemyController;
+    private EnemyController EnemyController;
     [SerializeField] private string tagToCheck;
     private List<GameObject> hitObjects = new(); // Objects inside the HitBox
 
     private void Awake()
     {
-        SM_EnemyController = GetComponentInParent<SM_EnemyController>();
+        EnemyController = GetComponentInParent<EnemyController>();
     }
 
     void OnTriggerStay(Collider other)
@@ -35,8 +35,8 @@ public class SM_EnemyHitBox : MonoBehaviour
     public List<GameObject> GetHitObject() { return hitObjects; } // Make the List accessable to other scripts
     public bool CurrentTargetInList() // Check if the current target is in the hit object list
     {
-        GameObject currentTarget = SM_EnemyController.SM_EnemyTargeting.currentTarget;
+        GameObject currentTarget = EnemyController.SM_EnemyTargeting.currentTarget;
         if (currentTarget == null) return false;
-        return hitObjects.Contains(SM_EnemyController.SM_EnemyTargeting.currentTarget);
+        return hitObjects.Contains(EnemyController.SM_EnemyTargeting.currentTarget);
     }
 }

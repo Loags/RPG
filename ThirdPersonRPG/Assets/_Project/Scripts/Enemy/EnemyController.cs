@@ -22,12 +22,12 @@ public enum EnemyFlowState
     INCOMBAT
 }
 
-public class SM_EnemyController : MonoBehaviour
+public class EnemyController : MonoBehaviour
 {
-    [HideInInspector] public SM_EnemyMovement SM_EnemyMovement;
-    [HideInInspector] public SM_EnemyCombat SM_EnemyCombat;
-    [HideInInspector] public SM_EnemyTargeting SM_EnemyTargeting;
-    [HideInInspector] public SM_EnemyHitBox SM_EnemyHitBox;
+    [HideInInspector] public EnemyMovement SM_EnemyMovement;
+    [HideInInspector] public EnemyCombat SM_EnemyCombat;
+    [HideInInspector] public EnemyTargeting SM_EnemyTargeting;
+    [HideInInspector] public EnemyHitBox SM_EnemyHitBox;
     [HideInInspector] public FieldOfView FieldOfView;
 
     [HideInInspector] public MonoBehaviour myMonoBehaviour;
@@ -48,10 +48,10 @@ public class SM_EnemyController : MonoBehaviour
 
     private void Awake()
     {
-        SM_EnemyMovement = GetComponent<SM_EnemyMovement>();
-        SM_EnemyCombat = GetComponent<SM_EnemyCombat>();
-        SM_EnemyTargeting = GetComponent<SM_EnemyTargeting>();
-        SM_EnemyHitBox = GetComponentInChildren<SM_EnemyHitBox>();
+        SM_EnemyMovement = GetComponent<EnemyMovement>();
+        SM_EnemyCombat = GetComponent<EnemyCombat>();
+        SM_EnemyTargeting = GetComponent<EnemyTargeting>();
+        SM_EnemyHitBox = GetComponentInChildren<EnemyHitBox>();
         FieldOfView = GetComponent<FieldOfView>();
         myMonoBehaviour = GetComponent<MonoBehaviour>();
     }

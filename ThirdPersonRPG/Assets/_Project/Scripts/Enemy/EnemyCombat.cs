@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SM_EnemyCombat : MonoBehaviour
+public class EnemyCombat : MonoBehaviour
 {
-    private SM_EnemyController SM_EnemyController;
+    private EnemyController SM_EnemyController;
 
     [Space(15)]
     [Header("Attack stats")]
@@ -40,7 +40,7 @@ public class SM_EnemyCombat : MonoBehaviour
     [SerializeField] private float blockChance;
     private bool isBlocking;
 
-    private void Awake() { SM_EnemyController = GetComponent<SM_EnemyController>(); }
+    private void Awake() { SM_EnemyController = GetComponent<EnemyController>(); }
 
     private void OnEnable()
     {
@@ -157,7 +157,7 @@ public class SM_EnemyCombat : MonoBehaviour
 
         foreach (GameObject _target in potentialTargets)
         {
-            if (_target.TryGetComponent(out SM_CharacterController otherController))
+            if (_target.TryGetComponent(out PlayerController otherController))
             {
                 // Call take damage function from otherController script and apply the _damage value
                 print("Attacked " + _target.name + " with an amount of: " + _damage + " damage!");

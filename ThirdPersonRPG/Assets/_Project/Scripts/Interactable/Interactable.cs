@@ -41,6 +41,6 @@ public class Interactable : MonoBehaviour
     private void OnDestroy()
     {
         if (!hasInteracted) return;
-        SM_CharacterController.playerInstance.SM_CharacterInteraction.RemoveInteractable(this);
+        PlayerController.instance.PlayerInteraction.RemoveInteractable(this);
     }
 }

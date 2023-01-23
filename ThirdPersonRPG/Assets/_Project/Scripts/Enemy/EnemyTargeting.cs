@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SM_EnemyTargeting : MonoBehaviour
+public class EnemyTargeting : MonoBehaviour
 {
-    private SM_EnemyController SM_EnemyController;
+    private EnemyController EnemyController;
 
     [Space(15)]
     [Header("Targeting")]
@@ -28,16 +28,16 @@ public class SM_EnemyTargeting : MonoBehaviour
 
     private void Awake()
     {
-        SM_EnemyController = GetComponent<SM_EnemyController>();
+        EnemyController = GetComponent<EnemyController>();
     }
     private void OnEnable()
     {
-        SM_EnemyController.OnEnemyContentStateChanged += FaceTarget;
+        EnemyController.OnEnemyContentStateChanged += FaceTarget;
     }
 
     private void OnDisable()
     {
-        SM_EnemyController.OnEnemyContentStateChanged -= FaceTarget;
+        EnemyController.OnEnemyContentStateChanged -= FaceTarget;
     }
 
     public void AddTarget(GameObject _target)
@@ -48,10 +48,10 @@ public class SM_EnemyTargeting : MonoBehaviour
 
         currentTarget = targets[0];
 
-        SM_EnemyController.InitializeCoroutine(ref targetInFollowingRangeCoroutine, CheckTargetInFollowingRange());
+        EnemyController.InitializeCoroutine(ref targetInFollowingRangeCoroutine, CheckTargetInFollowingRange());
 
-        SM_EnemyController.ChangeContentState(EnemyContentState.CHASE);
-        SM_EnemyController.ChangeFlowState(EnemyFlowState.INCOMBAT);
+        EnemyController.ChangeContentState(EnemyContentState.CHASE);
+        EnemyController.ChangeFlowState(EnemyFlowState.INCOMBAT);
     }
 
     public void RemoveTarget(GameObject _target)
@@ -64,9 +64,9 @@ public class SM_EnemyTargeting : MonoBehaviour
             currentTarget = targets[0];
         else
         {
-            SM_EnemyController.TerminateCoroutine(ref targetInFollowingRangeCoroutine, CheckTargetInFollowingRange());
+            EnemyController.TerminateCoroutine(ref targetInFollowingRangeCoroutine, CheckTargetInFollowingRange());
             currentTarget = null;
-            SM_EnemyController.ChangeFlowState(EnemyFlowState.PASSIVE);
+            EnemyController.ChangeFlowState(EnemyFlowState.PASSIVE);
         }
     }
 
@@ -88,7 +88,7 @@ public class SM_EnemyTargeting : MonoBehaviour
                 if (targetInFollowingRange)
                 {
                     targetInFollowingRange = false;
-                    SM_EnemyController.InitializeCoroutine(ref resetPhaseCoroutine, ResetPhase());
+                    EnemyController.InitializeCoroutine(ref resetPhaseCoroutine, ResetPhase());
                 }
             }
         }
@@ -96,38 +96,38 @@ public class SM_EnemyTargeting : MonoBehaviour
 
     private IEnumerator ResetPhase()
     {
-        SM_EnemyController.FieldOfView.SetDetection(false);
-        SM_EnemyController.ChangeContentState(EnemyContentState.RESETPHASE);
-        SM_EnemyController.SetDestination(this.transform.position); // Prevents ai from moving cause destination target is his own position
+        EnemyController.FieldOfView.SetDetection(false);
+        EnemyController.ChangeContentState(EnemyContentState.RESETPHASE);
+        EnemyController.SetDestination(this.transform.position); // Prevents ai from moving cause destination target is his own position
 
         yield return new WaitForSeconds(resetPhaseDuration);
         RemoveTarget(currentTarget);
-        SM_EnemyController.ChangeContentState(EnemyContentState.RETREATING); // Start the retreating phase - running back to origin
+        EnemyController.ChangeContentState(EnemyContentState.RETREATING); // Start the retreating phase - running back to origin
     }
 
     public void Retreating()
     {
-        SM_EnemyMovement SM_EnemyMovement = SM_EnemyController.SM_EnemyMovement;
+        EnemyMovement SM_EnemyMovement = EnemyController.SM_EnemyMovement;
 
-        if (SM_EnemyController.GetCurrentContentState() != EnemyContentState.RETREATING) return;
+        if (EnemyController.GetCurrentContentState() != EnemyContentState.RETREATING) return;
 
-        SM_EnemyController.SetDestination(SM_EnemyMovement.spawnPos); // Make the AI return to its origin
+        EnemyController.SetDestination(SM_EnemyMovement.spawnPos); // Make the AI return to its origin
 
-        if (Vector3.Distance(this.transform.position, SM_EnemyMovement.spawnPos) > SM_EnemyController.NavMeshAgent.stoppingDistance * 1.2) return; // Have a check if the AI reached its origin 
+        if (Vector3.Distance(this.transform.position, SM_EnemyMovement.spawnPos) > EnemyController.NavMeshAgent.stoppingDistance * 1.2) return; // Have a check if the AI reached its origin 
                                                                                                                                                    // Distance check AI.StoppingDistance * 1.2 ensures the AI can reach its origin
-        SM_EnemyController.ChangeContentState(EnemyContentState.PATROL);
-        SM_EnemyController.FieldOfView.SetDetection(true); // Make the AI spot enemies after it has reached its origin
-        SM_EnemyController.TerminateCoroutine(ref resetPhaseCoroutine, ResetPhase());
+        EnemyController.ChangeContentState(EnemyContentState.PATROL);
+        EnemyController.FieldOfView.SetDetection(true); // Make the AI spot enemies after it has reached its origin
+        EnemyController.TerminateCoroutine(ref resetPhaseCoroutine, ResetPhase());
     }
 
     private void FaceTarget()
     {
-        EnemyContentState currentState = SM_EnemyController.GetCurrentContentState();
+        EnemyContentState currentState = EnemyController.GetCurrentContentState();
         if (currentState == EnemyContentState.ATTACK || currentState == EnemyContentState.BLOCK) // only face the enemy when it is in range
-            SM_EnemyController.InitializeCoroutine(ref faceTargetCoroutine, FaceTargetScan());
+            EnemyController.InitializeCoroutine(ref faceTargetCoroutine, FaceTargetScan());
 
         if (currentState != EnemyContentState.ATTACK && currentState != EnemyContentState.BLOCK)
-            SM_EnemyController.TerminateCoroutine(ref faceTargetCoroutine, FaceTargetScan());
+            EnemyController.TerminateCoroutine(ref faceTargetCoroutine, FaceTargetScan());
     }
 
     private IEnumerator FaceTargetScan()
@@ -136,7 +136,7 @@ public class SM_EnemyTargeting : MonoBehaviour
         {
             yield return new WaitForSeconds(0.01f);
             Quaternion desiredRotation = Quaternion.LookRotation(currentTarget.transform.position - transform.position);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, desiredRotation, SM_EnemyController.NavMeshAgent.angularSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, desiredRotation, EnemyController.NavMeshAgent.angularSpeed * Time.deltaTime);
         }
     }
 

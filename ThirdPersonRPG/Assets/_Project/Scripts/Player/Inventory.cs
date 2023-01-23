@@ -48,12 +48,12 @@ public class Inventory : MonoBehaviour
         {
             activeInventory = Instantiate(inventoryPrefab, inventoryAnchor.transform);
             InventoryUI = activeInventory.GetComponent<InventoryUI>();
-            CoroutineManager.InitializeCoroutine(ref loadSlotsCoroutine, LoadSlots(), SM_CharacterController.playerInstance.myMonoBehaviour);
+            CoroutineManager.InitializeCoroutine(ref loadSlotsCoroutine, LoadSlots(), PlayerController.instance.myMonoBehaviour);
         }
 
         Cursor.visible = activeInventory;
         Cursor.lockState = activeInventory ? CursorLockMode.None : CursorLockMode.Locked;
-        SM_CharacterController.playerInstance.ToggleCameraInput();
+        PlayerController.instance.ToggleCameraInput();
     }
 
     private IEnumerator LoadSlots()
@@ -74,7 +74,7 @@ public class Inventory : MonoBehaviour
             inventorySlot.AddItem(items[i]);
         }
 
-        CoroutineManager.TerminateCoroutine(ref loadSlotsCoroutine, LoadSlots(), SM_CharacterController.playerInstance.myMonoBehaviour);
+        CoroutineManager.TerminateCoroutine(ref loadSlotsCoroutine, LoadSlots(), PlayerController.instance.myMonoBehaviour);
     }
 
     public bool Add(Item _item)

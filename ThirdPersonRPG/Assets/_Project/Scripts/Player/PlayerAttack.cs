@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SM_CharacterAttack : MonoBehaviour
+public class PlayerAttack : MonoBehaviour
 {
     public float health = 100f;
     public float attackValue = 20f;
