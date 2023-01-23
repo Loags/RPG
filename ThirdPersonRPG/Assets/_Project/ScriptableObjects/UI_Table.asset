@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b722c2635536d14fae91ae7e7a97cc6, type: 3}
+  m_Name: UI_Table
+  m_EditorClassIdentifier: 
+  StateObjects:
+  - {fileID: 11400000, guid: 9075711803e199f4582041ea3744eb46, type: 2}
+  - {fileID: 11400000, guid: 5548849b0e51d3e4ca688c833cab2296, type: 2}
+  - {fileID: 11400000, guid: 5b60114b4c852dc4a95f155e09d837bc, type: 2}
+  - {fileID: 11400000, guid: 29836b8cd8644d0429fab39e4c543908, type: 2}
+  - {fileID: 11400000, guid: a504030d3376a0a4f8f743370198b39b, type: 2}
+  - {fileID: 11400000, guid: 08049f0a5b29bb5428e19c61d19ed7bd, type: 2}
+  - {fileID: 11400000, guid: 36bd0b99774669e43a06371d8cd6c58e, type: 2}
+  - {fileID: 11400000, guid: a10807519629b9045aa2bd8435207d67, type: 2}
+  DefaultUIElements: []
+  CanvasElements: []
