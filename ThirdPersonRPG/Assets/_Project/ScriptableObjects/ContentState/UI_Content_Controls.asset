@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a523fe51cebf4a841a540718ddb1fc06, type: 3}
   m_Name: UI_Content_Controls
   m_EditorClassIdentifier: 
-  IsContentDependent: 0
-  TargetContentState: 0
+  IsContentDependent: 1
+  TargetContentState: 3
   TargetFlowState: 0
-  UIItems: []
+  UIItems:
+  - {fileID: 11400000, guid: c519f4481041ed942820ca284f1402ae, type: 2}

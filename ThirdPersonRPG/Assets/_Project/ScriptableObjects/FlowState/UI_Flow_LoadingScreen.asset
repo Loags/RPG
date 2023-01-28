@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsContentDependent: 0
   TargetContentState: 0
-  TargetFlowState: 0
-  UIItems: []
+  TargetFlowState: 1
+  UIItems:
+  - {fileID: 11400000, guid: 675f0cec7871afd46a3261d2d0db68c5, type: 2}
