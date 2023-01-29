@@ -1,18 +1,3 @@
-﻿using EventListener;
-using UnityEngine;
-
-namespace Events
-{
-    [CreateAssetMenu(menuName = "Custom Events/Bool Event", order = 1)]
-    public class BoolEvent : BaseEvent<BoolEventListener>
-    {
-
-        public void Raise(bool b)
-        {
-            for (int i = Listeners.Count - 1; i >= 0; i--)
-                Listeners[i].OnEventRaised(b);
-        }
-
-    }
-
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:4794f4f259ca5161d4820145dace7ce8172f618e246b9b7dc0d1503b6e4b431e
+size 374

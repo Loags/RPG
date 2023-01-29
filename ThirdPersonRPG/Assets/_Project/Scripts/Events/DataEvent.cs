@@ -1,19 +1,3 @@
-﻿using EventListener;
-using UnityEngine;
-
-namespace  Events
-{
-   
-	[CreateAssetMenu(menuName = "Custom Events/Data Event", order = 5)]
-	public class DataEvent : BaseEvent<DataEventListener>
-	{
-       
-		public void Raise(ScriptableObject scriptableObject)
-		{
-			//Debug.Log("Raised " + name);
-			for (int i = Listeners.Count - 1; i >= 0; i--)
-				Listeners[i].OnEventRaised(scriptableObject);
-		}
-		
-	}
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:2b727d7a12c95d5bda4bee7fa217f1218881af85746358e2afc2950de9dbf513
+size 408

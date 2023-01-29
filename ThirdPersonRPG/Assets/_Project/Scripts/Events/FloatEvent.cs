@@ -1,16 +1,3 @@
-﻿using EventListener;
-using UnityEngine;
-
-namespace  Events
-{
-	[CreateAssetMenu(menuName = "Custom Events/Float Event", order = 2)]
-	public class FloatEvent : BaseEvent<FloatEventListener>
-	{
-		public void Raise(float f)
-		{
-			for (int i = Listeners.Count - 1; i >= 0; i--)
-				Listeners[i].OnEventRaised(f);
-		}
-
-	}
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:06f6739718ffeb32655327b65d5461ca4a13c001f86fa95926da747e0d427da5
+size 322

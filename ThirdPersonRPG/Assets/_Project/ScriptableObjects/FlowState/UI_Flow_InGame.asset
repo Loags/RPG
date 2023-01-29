@@ -1,19 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a523fe51cebf4a841a540718ddb1fc06, type: 3}
-  m_Name: UI_Flow_InGame
-  m_EditorClassIdentifier: 
-  IsContentDependent: 0
-  TargetContentState: 0
-  TargetFlowState: 7
-  UIItems:
-  - {fileID: 11400000, guid: 84b6a8dcdeb54084c9231f16414467c4, type: 2}
+version https://git-lfs.github.com/spec/v1
+oid sha256:c488f12b7a7999a531045609306c0a4f78c5cb90203a7c92ed96b7baccd55c44
+size 555

@@ -1,16 +1,3 @@
-using EventListener;
-using UnityEngine;
-
-namespace  Events
-{
-	[CreateAssetMenu(menuName = "Custom Events/Int Event")]
-	public class IntEvent : BaseEvent<IntEventListener>
-	{
-		public void Raise(int value)
-		{
-			for (int i = Listeners.Count - 1; i >= 0; i--)
-				Listeners[i].OnEventRaised(value);
-		}
-
-	}
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:d03b0af6967e46d72a3ad692759d21622cf5d3df7a6f31b231736c95d5a1d0c8
+size 308

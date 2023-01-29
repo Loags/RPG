@@ -1,17 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50ddc1499dc61c548a524353e1c3e662, type: 3}
-  m_Name: Flow_UI_CreditsElement
-  m_EditorClassIdentifier: 
-  UIPrefab: {fileID: 8420296934384279305, guid: 6cbbeb42dbbfeb44585c2d7ebc56cce0, type: 3}
-  InstantiateAsNewCanvas: 0
-  TargetTag: UI
+version https://git-lfs.github.com/spec/v1
+oid sha256:9208e558b10da6f15a64ab9014be78b898d3156b8e05922aa1882a0550cbf0ae
+size 546

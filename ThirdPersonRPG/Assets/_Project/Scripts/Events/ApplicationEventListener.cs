@@ -1,34 +1,3 @@
-﻿using Events;
-using UnityEngine;
-using UnityEngine.Events;
-
-namespace EventListener
-{
-    [ExecuteInEditMode]
-    public class ApplicationEventListener : MonoBehaviour
-    {
-        public ApplicationEvent Event;
-        public UnityEvent Response;
-
-
-        private void OnEnable()
-        {
-            if (Event != null) Event.RegisterListener(this);
-        }
-
-        private void OnDisable()
-        {
-            if (Event != null) Event.UnregisterListener(this);
-        }
-
-        void OnDestroy()
-        {
-            if (Event != null) Event.UnregisterListener(this);
-        }
-
-        public void OnEventRaised()
-        {
-            Response.Invoke();
-        }
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:56134db77489c007eedd4e4d0fa1a1be2f092c222e644759853d79cc02150906
+size 688

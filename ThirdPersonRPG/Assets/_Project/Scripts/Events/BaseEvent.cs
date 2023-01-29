@@ -1,30 +1,3 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-namespace Events
-{
-    public abstract class BaseEvent<T> : ScriptableObject {
-
-        public List<T> Listeners = new List<T>();
-
-        void Awake()
-        {
-            Listeners.Clear();	
-        }
-
-        public void RegisterListener(T listener)
-        {
-            if(listener == null) return;
-		
-            if(!Listeners.Contains(listener)) Listeners.Add(listener);
-        }
-    
-        public void UnregisterListener(T listener)
-        {
-            if(Listeners.Contains(listener)) Listeners.Remove(listener);
-        }
-    }
-
-
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:552769f647e508fb617e7249034733077780e164be0633895ebc02bf6f949c45
+size 630

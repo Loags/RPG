@@ -1,21 +1,3 @@
-using UnityEngine;
-
-[CreateAssetMenu(fileName = "New Item", menuName = "Inventory/Equipment")]
-public class Equipment : Item
-{
-    public EquipmentSlot EquipmentSlot;
-
-    public int DamageModifier;
-    public int ArmorModifier;
-    public int HealthModifier;
-
-    public override void Use()
-    {
-        base.Use();
-
-        EquipmentManager.instance.Equip(this);
-        RemoveFromInventory();
-    }
-}
-
-public enum EquipmentSlot { Helmet, Chestplate, Gloves, Legs, Boots, Amulet, Earring, Ring, Weapon, Shield }
+version https://git-lfs.github.com/spec/v1
+oid sha256:95fad080a1b423e9316f5a2499f241097f3a8cec055683c8727935dcbaa82ab1
+size 538

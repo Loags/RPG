@@ -1,26 +1,3 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
-
-[CreateAssetMenu(menuName = "State System/New UI Set")]
-public class UIStateSetSO : StateSetSO<UIStateSO>
-{
-    public List<UIElementSO> DefaultUIElements = new List<UIElementSO>();
-    public List<UIElementSO> CanvasElements = new List<UIElementSO>();
-    
-    public void UpdateFlowState()
-    {
-        foreach (UIStateSO state in StateObjects)  
-        {
-            state.FlowStateChanged();
-        }
-    }
-
-    public void UpdateContentState()
-    {
-        foreach (UIStateSO state in StateObjects)  
-        {
-            state.ContentStateChanged();
-        }
-    }
-}
- 
+version https://git-lfs.github.com/spec/v1
+oid sha256:7e47aa4fc31501971dc2c00ff73e01f8d8720a4f6808d9065669f04b95c1a47a
+size 637

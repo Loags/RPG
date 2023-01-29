@@ -1,19 +1,3 @@
-﻿using EventListener;
-using UnityEngine;
-
-namespace Events
-{
-    [CreateAssetMenu(menuName = "Custom Events/GameObject Event", order = 3)]
-    public class GameObjectEvent : BaseEvent<GameObjectEventListener>
-    {
-        
-        public void Raise(GameObject _go)
-        {
-            //Debug.Log("Raise " +  name);
-            for (int i = Listeners.Count - 1; i >= 0; i--)
-                Listeners[i].OnEventRaised(_go);
-            
-        }
-    }
-}
- 
+version https://git-lfs.github.com/spec/v1
+oid sha256:d12793a7ec3f804e003b815367660657337402ed1094a32c6280572b1b5c7bd7
+size 479

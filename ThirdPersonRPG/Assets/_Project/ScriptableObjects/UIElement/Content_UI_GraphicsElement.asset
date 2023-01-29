@@ -1,17 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50ddc1499dc61c548a524353e1c3e662, type: 3}
-  m_Name: Content_UI_GraphicsElement
-  m_EditorClassIdentifier: 
-  UIPrefab: {fileID: 1284382903104526521, guid: 00fdeaefb78292442a9da0c66e757ed1, type: 3}
-  InstantiateAsNewCanvas: 0
-  TargetTag: Settings
+version https://git-lfs.github.com/spec/v1
+oid sha256:a28c75242ca5dda08f8eb0c52dc03cff37e95abcd2f5ec7db82cd87db4b56bf1
+size 556

@@ -1,24 +1,3 @@
-using UnityEngine;
-
-[CreateAssetMenu(fileName = "New Item", menuName = "Inventory/Item")]
-public class Item : ScriptableObject
-{
-    new public string name = "New Item";
-    public Sprite icon = null;
-    public bool isDefaultItem = false;
-
-    public virtual void Use()
-    {
-        Debug.Log("Using " + name);
-    }
-
-    public void RemoveFromInventory()
-    {
-        Inventory.instance.Remove(this);
-    }
-
-    public void SetSlotInfo()
-    {
-
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:18dd8bc44dd3a1081bc9587f7ecd7dcee37983dd17f94e1b8d147af315b9c848
+size 481
