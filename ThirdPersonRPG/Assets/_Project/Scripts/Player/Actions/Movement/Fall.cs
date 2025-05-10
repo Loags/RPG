@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:199cd932c90e43fdf0b80eab9b057b88ce7c2adb075cd53cb72c47a34c027d4d
-size 714
+namespace LB
+{
+    public class Fall : MovementActionHandler<EmptyContext>
+    {
+        public Fall(RPGCharacterMovementController movement) : base(movement)
+        {
+        }
+
+        public override bool CanStartAction(RPGCharacterController controller)
+        {
+            return !controller.MaintainingGround;
+        }
+
+        protected override void _StartAction(RPGCharacterController controller, EmptyContext context)
+        {
+            movement.currentState = CharacterState.Fall;
+        }
+
+        public override bool IsActive()
+        {
+            return movement.currentState != null && (CharacterState)movement.currentState == CharacterState.Fall;
+        }
+    }
+}

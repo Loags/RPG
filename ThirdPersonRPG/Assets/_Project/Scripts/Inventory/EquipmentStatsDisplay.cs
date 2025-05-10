@@ -1,3 +1,43 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c2b66e77e8870a691854c52d3655181f9b29a23f3a026b163ed7d95eb141fa73
-size 1714
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
+
+namespace LB.Inventory
+{
+    public class EquipmentStatsDisplay : MonoBehaviour
+    {
+        [SerializeField] private TMP_Text healthText;
+        [SerializeField] private TMP_Text staminaText;
+        [SerializeField] private TMP_Text armorText;
+        [SerializeField] private TMP_Text strengthText;
+        [SerializeField] private TMP_Text agilityText;
+        [SerializeField] private TMP_Text intellectText;
+        
+        private RPGCharacterStats rpgCharacterStats;
+
+        public void Start()
+        {
+            rpgCharacterStats = GameObject.FindGameObjectWithTag("Player").GetComponent<RPGCharacterStats>();
+            rpgCharacterStats.onModifierChanged += UpdateStats;
+            UpdateStats();
+        }
+
+        public void UpdateStats()
+        {
+            healthText.text = rpgCharacterStats.GetMaxValueOfAttributeType(Attributes.Health).ToString();
+            staminaText.text = rpgCharacterStats.GetMaxValueOfAttributeType(Attributes.Stamina).ToString();
+            armorText.text = rpgCharacterStats.GetMaxValueOfAttributeType(Attributes.Armor).ToString();
+            strengthText.text = rpgCharacterStats.GetMaxValueOfAttributeType(Attributes.Strength).ToString();
+            agilityText.text = rpgCharacterStats.GetMaxValueOfAttributeType(Attributes.Agility).ToString();
+            intellectText.text = rpgCharacterStats.GetMaxValueOfAttributeType(Attributes.Intellect).ToString();
+        }
+
+
+        private void OnDestroy()
+        {
+            rpgCharacterStats.onModifierChanged -= UpdateStats;
+        }
+    }
+}

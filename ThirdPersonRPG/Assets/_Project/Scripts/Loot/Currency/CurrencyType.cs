@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5d5ef2f4c9f299bd6e3571a9c0da91956920cb1fd328cfb10af82f19bd8d051e
-size 253
+namespace LB.Loot.Currency
+{
+    /// <summary>
+    /// Represents different types of currencies in the game
+    /// </summary>
+    public enum CurrencyType
+    {
+        Bronze,
+        Silver,
+        Gold
+
+        // Add more here
+    }
+}

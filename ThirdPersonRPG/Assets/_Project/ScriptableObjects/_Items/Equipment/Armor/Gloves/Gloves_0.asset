@@ -1,3 +1,45 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:90ff424423b8b477a8afdb8a7366026ba975abab30af58f9b4d80e22aa4113a5
-size 979
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e597c795d4a3ea34bbe916777b5aa39b, type: 3}
+  m_Name: Gloves_0
+  m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: 69bca55d0d23f754194007aeef6c1812, type: 3}
+  characterDisplay: {fileID: 0}
+  stackable: 0
+  stackAmount: 1
+  description: Gloves_0
+  data:
+    name: Gloves_0
+    Id: -1
+    buffs:
+    - attribute: 0
+      value: 0
+      min: 5
+      max: 16
+    - attribute: 5
+      value: 0
+      min: 5
+      max: 16
+    - attribute: 6
+      value: 0
+      min: 5
+      max: 16
+    - attribute: 2
+      value: 0
+      min: 5
+      max: 16
+    StaminaAttackCost: 2
+    StaminaLightAttackCostMultiplier: 1
+  boneNames: []
+  type: 0
+  equipmentType: 1
+  armorType: 2

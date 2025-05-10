@@ -1,3 +1,28 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:17d919a1329d8245df8fc295876da98f0c78e47ab341692d68f89615cc7f4407
-size 842
+using UnityEngine;
+
+namespace LB
+{
+    public class DiveRoll : MovementActionHandler<DiveRollType>
+    {
+        public DiveRoll(RPGCharacterMovementController movement) : base(movement)
+        {
+        }
+
+        public override bool CanStartAction(RPGCharacterController controller)
+        {
+            Debug.Log("Can Start Dive Roll Action");
+            return controller.CanAction;
+        }
+
+        protected override void _StartAction(RPGCharacterController controller, DiveRollType rollType)
+        {
+            controller.DiveRoll(rollType);
+            movement.currentState = CharacterState.DiveRoll;
+        }
+
+        public override bool IsActive()
+        {
+            return movement.currentState != null && (CharacterState)movement.currentState == CharacterState.DiveRoll;
+        }
+    }
+}

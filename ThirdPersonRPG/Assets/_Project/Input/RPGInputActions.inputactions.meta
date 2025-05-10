@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2a8cffc02665052aa755d2e5f5eeb5331489355504be09540eb0c1c6549a333b
-size 421
+fileFormatVersion: 2
+guid: 3995259ae4d2f7748b161102fa259638
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 8404be70184654265930450def6a9037, type: 3}
+  generateWrapperCode: 1
+  wrapperCodePath: Assets/_Project/Input/RPGInputs.cs
+  wrapperClassName: RPGInputs
+  wrapperCodeNamespace: LB

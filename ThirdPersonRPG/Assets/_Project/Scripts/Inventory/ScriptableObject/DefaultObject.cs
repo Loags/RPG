@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ce8eddcfd973cbfafd8cd577ac8c41107ce5818135c02b4c85ee80fa750baf49
-size 348
+using UnityEngine;
+
+namespace LB.Inventory
+{
+    [CreateAssetMenu(fileName = "New Default Object", menuName = "Inventory System/Items/Default")]
+    public class DefaultObject : ItemObject
+    {
+        protected override void OnValidate()
+        {
+            base.OnValidate();
+            type = ItemType.Default;
+        }
+    }
+}

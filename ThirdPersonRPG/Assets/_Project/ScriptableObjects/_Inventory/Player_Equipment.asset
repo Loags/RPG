@@ -1,3 +1,104 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1cc32887044f70becbc26b390ff9a06f6f8ad1efb0a50264f1a1559a9ff4ed09
-size 3081
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ec4b579a48713849847e45e27c0ef48, type: 3}
+  m_Name: Player_Equipment
+  m_EditorClassIdentifier: 
+  savePath: /PlayerEquipment.json
+  type: 1
+  Container:
+    Slots:
+    - AllowedItems:
+      - {fileID: 11400000, guid: 606fd758f85f97e4f8fd5d2995020206, type: 2}
+      item:
+        name: 
+        Id: -1
+        buffs: []
+        tier: 6
+      amount: 0
+    - AllowedItems:
+      - {fileID: 11400000, guid: 6c044aa555b2edb4abe702fa50e56756, type: 2}
+      item:
+        name: 
+        Id: -1
+        buffs: []
+        tier: 6
+      amount: 0
+    - AllowedItems:
+      - {fileID: 11400000, guid: cc355ed65cd3a6745bbfee7974048854, type: 2}
+      item:
+        name: 
+        Id: -1
+        buffs: []
+        tier: 6
+      amount: 0
+    - AllowedItems:
+      - {fileID: 11400000, guid: 9ae318e40717a4944b3223398da51f8e, type: 2}
+      item:
+        name: 
+        Id: -1
+        buffs: []
+        tier: 6
+      amount: 0
+    - AllowedItems:
+      - {fileID: 11400000, guid: 34302331a7b706e44bb7e0457605505e, type: 2}
+      item:
+        name: 
+        Id: -1
+        buffs: []
+        tier: 6
+      amount: 0
+    - AllowedItems:
+      - {fileID: 11400000, guid: d92dea9bf20232b4596ad803413e429d, type: 2}
+      item:
+        name: 
+        Id: -1
+        buffs: []
+        tier: 6
+      amount: 0
+    - AllowedItems:
+      - {fileID: 11400000, guid: 1107ff35f56ace44e8ebc1fc942088d4, type: 2}
+      item:
+        name: 
+        Id: -1
+        buffs: []
+        tier: 6
+      amount: 0
+    - AllowedItems:
+      - {fileID: 11400000, guid: 75d84729fef2b0344ad78fe31c64f9be, type: 2}
+      item:
+        name: 
+        Id: -1
+        buffs: []
+        tier: 6
+      amount: 0
+    - AllowedItems:
+      - {fileID: 11400000, guid: 18bc5cfda506f0c4689a0239dd97c2e9, type: 2}
+      - {fileID: 11400000, guid: 3c91b8f98efa2fe499dc99e58c9e76c6, type: 2}
+      item:
+        name: 
+        Id: -1
+        buffs: []
+        tier: 6
+      amount: 0
+  isBatchSaveMode: 0
+  folderPath: Assets/_Project/ScriptableObjects/_Inventory/AllowedItems
+  loadedScriptableObjects:
+  - {fileID: 11400000, guid: 1107ff35f56ace44e8ebc1fc942088d4, type: 2}
+  - {fileID: 11400000, guid: d92dea9bf20232b4596ad803413e429d, type: 2}
+  - {fileID: 11400000, guid: 75d84729fef2b0344ad78fe31c64f9be, type: 2}
+  - {fileID: 11400000, guid: 34302331a7b706e44bb7e0457605505e, type: 2}
+  - {fileID: 11400000, guid: 6c044aa555b2edb4abe702fa50e56756, type: 2}
+  - {fileID: 11400000, guid: cc355ed65cd3a6745bbfee7974048854, type: 2}
+  - {fileID: 11400000, guid: 606fd758f85f97e4f8fd5d2995020206, type: 2}
+  - {fileID: 11400000, guid: 9ae318e40717a4944b3223398da51f8e, type: 2}
+  - {fileID: 11400000, guid: 18bc5cfda506f0c4689a0239dd97c2e9, type: 2}
+  - {fileID: 11400000, guid: 3c91b8f98efa2fe499dc99e58c9e76c6, type: 2}

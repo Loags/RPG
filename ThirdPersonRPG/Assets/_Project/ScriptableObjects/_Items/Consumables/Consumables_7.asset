@@ -1,3 +1,28 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:63b4580f13acfb51a8645596b747090fb95be69a9e957ce018c04807041ff880
-size 739
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e01686b61b280394ca500252a1720945, type: 3}
+  m_Name: Consumables_7
+  m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: 32e970a17be94af40b04a735cbeed470, type: 3}
+  characterDisplay: {fileID: 0}
+  stackable: 1
+  stackAmount: 3
+  description: Consumables_7
+  data:
+    name: Consumables_7
+    Id: -1
+    buffs: []
+    StaminaAttackCost: 2
+    StaminaLightAttackCostMultiplier: 1
+  boneNames: []
+  type: 0
+  consumableType: 0

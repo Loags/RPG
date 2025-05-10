@@ -1,3 +1,21 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5945ff08a680de68ea75f60b82d11c3a710c70d007967c013078cc0565420e92
-size 470
+using UnityEngine;
+
+namespace LB
+{
+    public class MiniMap : MonoBehaviour
+    {
+        private Transform player;
+
+        private void Awake()
+        {
+            player = GameObject.FindGameObjectWithTag("Player").transform;
+        }
+
+        private void LateUpdate()
+        {
+            Vector3 newPosition = player.position;
+            newPosition.y = transform.position.y;
+            transform.position = newPosition;
+        }
+    }
+}

@@ -1,3 +1,45 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:8fc3644e3e4c60ab5c9c06f0fe9a32048fe13f2795aa672bf3f4f404853e058e
-size 986
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e95bd052e7058aa4bbf8ba3a664326d5, type: 3}
+  m_Name: Earring_0
+  m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: 1036ed1083fd0b04c9beb7cf238d574b, type: 3}
+  characterDisplay: {fileID: 0}
+  stackable: 0
+  stackAmount: 1
+  description: Earring_0
+  data:
+    name: Earring_0
+    Id: -1
+    buffs:
+    - attribute: 2
+      value: 0
+      min: 5
+      max: 16
+    - attribute: 5
+      value: 0
+      min: 5
+      max: 16
+    - attribute: 7
+      value: 0
+      min: 5
+      max: 16
+    - attribute: 4
+      value: 0
+      min: 5
+      max: 16
+    StaminaAttackCost: 2
+    StaminaLightAttackCostMultiplier: 1
+  boneNames: []
+  type: 0
+  equipmentType: 2
+  accessoryType: 1

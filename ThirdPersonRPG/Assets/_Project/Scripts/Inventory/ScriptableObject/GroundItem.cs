@@ -1,3 +1,11 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:fd9aef767c6be5b8ac010af11e8372687dc2279d5797d982151ffe4bf3f095a8
-size 206
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace LB.Inventory
+{
+    public class GroundItem : MonoBehaviour
+    {
+        public ItemObject item;
+    }
+}

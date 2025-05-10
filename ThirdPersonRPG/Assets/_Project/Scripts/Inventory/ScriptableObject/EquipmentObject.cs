@@ -1,3 +1,59 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d9225585afce4ed79f38a80e675ea7195f3de0e68bf13d1789b0232ab2b142ae
-size 1807
+using System.Collections.Generic;
+
+namespace LB.Inventory
+{
+    public class EquipmentObject : ItemObject
+    {
+        public Equipment equipmentType;
+
+        protected override void OnValidate()
+        {
+            base.OnValidate();
+            type = ItemType.Equipment;
+        }
+
+        protected virtual void GenerateWeaponBuffs(List<ItemBuff> buffList, ItemTier _tier)
+        {
+        }
+
+        protected virtual void GenerateArmorBuffs(List<ItemBuff> buffList, ItemTier _tier)
+        {
+        }
+
+        protected virtual void GenerateAccessoryBuffs(List<ItemBuff> buffList, ItemTier _tier)
+        {
+        }
+
+        public override List<ItemBuff> GeneratePredefinedBuffs(ItemTier _tier)
+        {
+            List<ItemBuff> buffList = new List<ItemBuff>();
+
+            switch (equipmentType)
+            {
+                case Equipment.Weapon:
+                    GenerateWeaponBuffs(buffList, _tier);
+                    break;
+                case Equipment.Armor:
+                    GenerateArmorBuffs(buffList, _tier);
+                    break;
+                case Equipment.Accessory:
+                    GenerateAccessoryBuffs(buffList, _tier);
+                    break;
+            }
+
+            return buffList;
+        }
+
+        protected void ApplyBuffs(Dictionary<ItemTier, Dictionary<Attributes, (int Min, int Max)>> _buffRanges,
+            List<ItemBuff> _buffList, ItemTier _tier)
+        {
+            foreach (KeyValuePair<Attributes, (int Min, int Max)> attribute in _buffRanges[_tier])
+            {
+                _buffList.Add(new ItemBuff(attribute.Value.Min, attribute.Value.Max)
+                {
+                    attribute = attribute.Key
+                });
+            }
+        }
+    }
+}

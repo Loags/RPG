@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:56331a39495b9cd93f56fe1703dbde30fe35ca0d90765763bd1686128a70be2b
-size 462
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+
+namespace LB
+{
+    public static class CollectionExtensions
+    {
+        public static T TakeRandom<T>(this ICollection<T> collection)
+        {
+            return collection.ElementAt(Random.Range(0, collection.Count));
+        }
+
+        public static T TakeRandom<T>(this T[] array)
+        {
+            return array[Random.Range(0, array.Length)];
+        }
+    }
+}

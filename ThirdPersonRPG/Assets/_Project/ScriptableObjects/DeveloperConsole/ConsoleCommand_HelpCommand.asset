@@ -1,3 +1,39 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0f93bccb8580b5aad69ba68e8511ea16405ec0066c40dfd49135ef85fbd11b02
-size 1333
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9d6eaa86281d0247a5f889f757f0ce2, type: 3}
+  m_Name: ConsoleCommand_HelpCommand
+  m_EditorClassIdentifier: 
+  commandWord: help
+  possibleCommands: []
+  helpText: '<b>Navigation:</b> You can navigate through the preview option with
+    arrowKeyUp and arrowKeyDown
+
+    <b>Selection:</b> You can press TAB to auto
+    complete the selected preview
+
+    <b>Execute command:</b> You can press RETURN
+    to execute a command
+
+
+    <b>Input format:</b> Always start the command with
+    ''/''. After that enter the type of the command ''/typeOfCommand''. After that
+    make a space and enter one of the possible commands ''/typeOfCommand command''.
+    If there is a specific suffix you have to enter, make a space and put in the
+    value ''/typeOfCommand command value''.
+
+
+    <b>Console History:</b> The history
+    displays the previously executed commands, to keep track
+
+    <b>Console Debug
+    History:</b> The history displays the actions the previously executed commands
+    have dont automatically in the background'

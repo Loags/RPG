@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:74dde8be297ae45680b3890b1bbc78d81199243bde0f2cc0dace5446e1aab9ae
-size 299
+﻿# Default ignored files
+/shelf/
+/workspace.xml
+# Rider ignored files
+/projectSettingsUpdater.xml
+/contentModel.xml
+/modules.xml
+/.idea.ThirdPersonRPG.iml
+# Editor-based HTTP Client requests
+/httpRequests/
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml

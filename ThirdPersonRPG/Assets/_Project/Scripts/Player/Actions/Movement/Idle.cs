@@ -1,3 +1,29 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b10b1a64ad4ce831e2ac0041a0cdf429a3efae1f18a5f8c45f98fa31f75f1d5f
-size 902
+namespace LB
+{
+    public class Idle : MovementActionHandler<EmptyContext>
+    {
+        public Idle(RPGCharacterMovementController movement) : base(movement)
+        {
+        }
+
+        public override bool CanStartAction(RPGCharacterController controller)
+        {
+            if (controller.IsMoving || controller.IsSprinting)
+            {
+                return controller.MoveInput.magnitude < 0.2f;
+            }
+
+            return controller.MaintainingGround || controller.AcquiringGround;
+        }
+
+        protected override void _StartAction(RPGCharacterController controller, EmptyContext context)
+        {
+            movement.currentState = CharacterState.Idle;
+        }
+
+        public override bool IsActive()
+        {
+            return movement.currentState != null && (CharacterState)movement.currentState == CharacterState.Idle;
+        }
+    }
+}

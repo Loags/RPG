@@ -1,3 +1,12 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2f5f5f3b84bf5ebbef4b83e886b504604a98359bf4248b20acd33ab983466440
-size 238
+namespace LB{
+    public enum UnarmedAttack
+	{
+        Unknown = 0,
+        LeftAttack1 = 1,
+        LeftAttack2 = 2,
+        LeftAttack3 = 3,
+        RightAttack1 = 4,
+        RightAttack2 = 5,
+        RightAttack3 = 6
+    }
+}

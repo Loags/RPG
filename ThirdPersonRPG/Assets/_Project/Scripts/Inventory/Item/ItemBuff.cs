@@ -1,3 +1,25 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7140c5c01aedb20907136bc92815917243825b7b32cb03163314ad66093caa7c
-size 579
+﻿using System;
+using Random = UnityEngine.Random;
+
+namespace LB.Inventory
+{
+    [Serializable]
+    public class ItemBuff : IModifier
+    {
+        public Attributes attribute;
+        public int value;
+        public int min;
+        public int max;
+
+        public ItemBuff(int _min, int _max)
+        {
+            this.min = _min;
+            this.max = _max;
+            GenerateValue();
+        }
+
+        public void AddValue(ref int baseValue) => baseValue += value;
+
+        public void GenerateValue() => value = Random.Range(min, max);
+    }
+}

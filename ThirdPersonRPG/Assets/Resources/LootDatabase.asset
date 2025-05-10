@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:176144be5af13baa6dfe0f3745240d5a3107c3a3bdde79401f642b3bcd39dec3
-size 697
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30410a3c5d9769d4bbd9baab85015353, type: 3}
+  m_Name: LootDatabase
+  m_EditorClassIdentifier: 
+  lootConfigurations:
+  - enemyType: 1
+    lootTemplate: {fileID: 11400000, guid: 45f7201d8bfc9e040bcbd918dd70591a, type: 2}
+  defaultTemplateRules:
+  - enemyType: 1
+    minLevel: 1
+    maxLevel: 100
+    template: {fileID: 11400000, guid: 45f7201d8bfc9e040bcbd918dd70591a, type: 2}
+    weight: 1

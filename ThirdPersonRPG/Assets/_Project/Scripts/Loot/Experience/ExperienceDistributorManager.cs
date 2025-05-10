@@ -1,3 +1,51 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:15fc6d8ef947a2d5dd1323dd0b6a0aed26ddb68570dd92645b985a8a4a43e648
-size 1982
+using UnityEngine;
+using System.Collections.Generic;
+using System.Linq;
+using LB;
+
+namespace LB.Loot.Experience
+{
+    public class ExperienceDistributorManager : PersistantSingleton<ExperienceDistributorManager>
+    {
+        [SerializeField] private float groupExperienceMultiplier = 1.5f;
+        [SerializeField] private float maxDistanceForGroupExp = 50f;
+        [SerializeField] private LayerMask experienceReceiverLayer;
+
+        public void DistributeExperience(float baseExperience, Vector3 sourcePosition, IExperienceReceiver primaryReceiver)
+        {
+            List<IExperienceReceiver> receivers = GetEligibleReceivers(sourcePosition, primaryReceiver);
+
+            if (receivers.Count == 0) return;
+
+            float totalExperience = baseExperience * groupExperienceMultiplier;
+            float experiencePerReceiver = totalExperience / receivers.Count;
+
+            foreach (IExperienceReceiver receiver in receivers)
+            {
+                if (receiver.IsAlive)
+                {
+                    receiver.AddExperience(experiencePerReceiver);
+                }
+            }
+        }
+
+        private List<IExperienceReceiver> GetEligibleReceivers(Vector3 sourcePosition, IExperienceReceiver primaryReceiver)
+        {
+            List<IExperienceReceiver> receivers = new List<IExperienceReceiver>();
+            Collider[] hitColliders = Physics.OverlapSphere(sourcePosition, maxDistanceForGroupExp, experienceReceiverLayer, QueryTriggerInteraction.Collide);
+
+            foreach (Collider hitCollider in hitColliders)
+            {
+                if (hitCollider.TryGetComponent<IExperienceReceiver>(out IExperienceReceiver receiver))
+                {
+                    if (receiver.Faction == primaryReceiver.Faction)
+                    {
+                        receivers.Add(receiver);
+                    }
+                }
+            }
+
+            return receivers;
+        }
+    }
+}

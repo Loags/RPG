@@ -1,3 +1,55 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:15ea616cda00a1b40bcc5fec267f5b5ed58a762a16a2f4bed3dbe70c8bbfa298
-size 1825
+using LB.Inventory;
+using UnityEngine;
+
+namespace LB
+{
+    public class PlayerStatsBar : SliderModifier
+    {
+        [SerializeField] private bool isHealthBar;
+
+        private RPGCharacterStats rpgCharacterStats;
+
+        public override void Awake()
+        {
+            base.Awake();
+            rpgCharacterStats = RPGCharacterController.Instance.rpgCharacterStats;
+        }
+
+        public override void Start()
+        {
+            UpdateMax();
+            UpdateCurrent();
+            rpgCharacterStats.onModifierChanged += UpdateMax;
+            rpgCharacterStats.onModifierChanged += UpdateCurrent;
+            base.Start();
+        }
+
+        public void UpdateMax()
+        {
+            slider.maxValue = isHealthBar
+                ? rpgCharacterStats.GetMaxValueOfAttributeType(Attributes.Health)
+                : rpgCharacterStats.GetMaxValueOfAttributeType(Attributes.Stamina);
+        }
+
+        public void UpdateCurrent()
+        {
+            slider.value = isHealthBar ? rpgCharacterStats.CurrentHealth : rpgCharacterStats.CurrentStamina;
+        }
+
+        public override void UpdateSliderText(float _value)
+        {
+            if (isHealthBar)
+                sliderDisplayText.text = rpgCharacterStats.CurrentHealth + " / " +
+                                         rpgCharacterStats.GetMaxValueOfAttributeType(Attributes.Health);
+            else
+                sliderDisplayText.text = rpgCharacterStats.CurrentStamina + " / " +
+                                         rpgCharacterStats.GetMaxValueOfAttributeType(Attributes.Stamina);
+        }
+
+        private void OnDestroy()
+        {
+            rpgCharacterStats.onModifierChanged -= UpdateMax;
+            rpgCharacterStats.onModifierChanged -= UpdateCurrent;
+        }
+    }
+}

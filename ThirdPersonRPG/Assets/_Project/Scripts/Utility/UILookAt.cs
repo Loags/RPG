@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:37046d438e282deff8b84eafd5b4e6bbe84c9fb116f3f7a4622e51978d155186
-size 310
+using UnityEngine;
+
+namespace LB
+{
+    public class UILookAt : MonoBehaviour
+    {
+        void LateUpdate()
+        {
+            transform.LookAt(transform.position + Camera.main.transform.rotation * Vector3.forward,
+                Camera.main.transform.rotation * Vector3.up);
+        }
+    }
+}

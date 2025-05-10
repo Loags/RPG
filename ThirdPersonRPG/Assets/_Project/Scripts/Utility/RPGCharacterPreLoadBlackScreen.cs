@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:fb719dc4f2888fb50a24c80e367abb026e653cfdcb00709889bc713365276d20
-size 622
+using LB;
+using UnityEngine;
+
+public class RPGCharacterPreLoadBlackScreen : MonoBehaviour
+{
+    [SerializeField] private GameObject blackScreenImage;
+    private RPGCharacterController rPGCharacterController;
+
+    private void Awake()
+    {
+        rPGCharacterController = GetComponentInParent<RPGCharacterController>();
+        rPGCharacterController.OnPreLoad += ToggleBlackScreen;
+    }
+
+    private void ToggleBlackScreen()
+    {
+        blackScreenImage.SetActive(!rPGCharacterController.IsPreLoadFinished);
+        rPGCharacterController.rpgCharacterInventoryController.ToggleInventory();
+    }
+}

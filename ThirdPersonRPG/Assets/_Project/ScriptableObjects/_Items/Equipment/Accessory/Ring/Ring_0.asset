@@ -1,3 +1,37 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f60d3aefeec2fd8de43dde46ec0fa0fa6b32887c6a0529bf3bcc9fcf6f555600
-size 855
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e95bd052e7058aa4bbf8ba3a664326d5, type: 3}
+  m_Name: Ring_0
+  m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: 87fd664077090904b822cdbec4b83e06, type: 3}
+  characterDisplay: {fileID: 0}
+  stackable: 0
+  stackAmount: 1
+  description: Ring_0
+  data:
+    name: Ring_0
+    Id: -1
+    buffs:
+    - attribute: 0
+      value: 0
+      min: 5
+      max: 16
+    - attribute: 1
+      value: 0
+      min: 5
+      max: 16
+    StaminaAttackCost: 2
+    StaminaLightAttackCostMultiplier: 1
+  boneNames: []
+  type: 0
+  equipmentType: 2
+  accessoryType: 0

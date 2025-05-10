@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:dbf8065cd361f1d8b0acfe262818df6aa03db842c42bc19149963b78c2632b62
-size 498
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d4329fa2d9e7c64696daf4e1a76dc6e, type: 3}
+  m_Name: Weapon_Melee
+  m_EditorClassIdentifier: 
+  slotType: 8
+  itemType: 0
+  equipmentType: 0
+  weaponType: 1
+  armorType: 5
+  accessoryType: 3

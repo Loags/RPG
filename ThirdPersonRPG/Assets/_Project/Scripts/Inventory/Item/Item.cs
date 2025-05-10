@@ -1,3 +1,26 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3743983df09e7d460560fe3cbf5b466cdd5e0fb445764e77c7e7e3902642faba
-size 522
+﻿using System;
+using System.Collections.Generic;
+
+namespace LB.Inventory
+{
+    [Serializable]
+    public class Item
+    {
+        public string name;
+        public int Id = -1;
+        public List<ItemBuff> buffs = new();
+        public ItemTier tier = ItemTier.NONE;
+
+        public Item()
+        {
+            name = "";
+            Id = -1;
+        }
+
+        public Item(ItemObject _item)
+        {
+            this.name = _item.name;
+            this.Id = _item.data.Id;
+        }
+    }
+}

@@ -1,3 +1,30 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9b460ecd992bd56360e1ddbee79e998cad59ed43634441b50c16f0cca2255b4f
-size 972
+using UnityEngine;
+
+namespace LB
+{
+    public class Move : MovementActionHandler<EmptyContext>
+    {
+        public Move(RPGCharacterMovementController movement) : base(movement)
+        {
+        }
+
+        public override bool CanStartAction(RPGCharacterController controller)
+        {
+            return controller.CanMove
+                   && !controller.rpgCharacterInputSystemController.HasSprintInput()
+                   && controller.MoveInput.sqrMagnitude > 0.1f
+                   && controller.MaintainingGround;
+        }
+
+        protected override void _StartAction(RPGCharacterController controller, EmptyContext context)
+        {
+            Debug.Log("Start Move Action");
+            movement.currentState = CharacterState.Move;
+        }
+
+        public override bool IsActive()
+        {
+            return movement.currentState != null && (CharacterState)movement.currentState == CharacterState.Move;
+        }
+    }
+}

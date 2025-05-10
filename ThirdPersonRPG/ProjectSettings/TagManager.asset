@@ -1,3 +1,50 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:86e392f33b51f6a9d2c3d69db53e0bf3dc7def725bca6b40045a354a2d49ec09
-size 520
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 3
+  tags:
+  - UI
+  - Ground
+  - Settings
+  - Enemy
+  - Interactable
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - 
+  - Interactable
+  - Controller
+  - MiniMapTarget
+  - Walkable
+  - Player
+  - Enemy
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  m_RenderingLayers:
+  - Default
