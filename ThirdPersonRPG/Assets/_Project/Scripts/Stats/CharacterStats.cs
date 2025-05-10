@@ -8,7 +8,7 @@ namespace LB
 {
     public abstract class CharacterStats : MonoBehaviour, IExperienceReceiver
     {
-        [SerializeField] protected bool debugDamage;
+        [SerializeField] protected bool _debugCharacterStats;
         public Attribute[] attributes;
         protected CharacterStats characterStats;
 
@@ -67,7 +67,7 @@ namespace LB
             _damage -= GetMaxValueOfAttributeType(Attributes.Armor);
             _damage = Mathf.Clamp(_damage, 0, int.MaxValue);
 
-            if (debugDamage)
+            if (_debugCharacterStats)
             {
                 Debug.Log($"Character {gameObject}" +
                           $"\nHealth: {CurrentHealth}" +
@@ -99,7 +99,13 @@ namespace LB
 
         public void AddHealth(int _amount)
         {
-            _amount = Mathf.Abs(_amount);
+            if (_amount <= 0)
+            {
+                if (_debugCharacterStats)
+                    Debug.LogWarning("Tried to AddHealth with a value of <= 0");
+                return;
+            }
+
             if (IsCharacterDead) return;
 
             CurrentHealth += _amount;
@@ -110,7 +116,13 @@ namespace LB
 
         public void AddStamina(int _amount)
         {
-            _amount = Mathf.Abs(_amount);
+            if (_amount <= 0)
+            {
+                if (_debugCharacterStats)
+                    Debug.LogWarning("Tried to AddStamina with a value of <= 0");
+                return;
+            }
+
             if (IsCharacterDead) return;
 
             CurrentStamina += _amount;

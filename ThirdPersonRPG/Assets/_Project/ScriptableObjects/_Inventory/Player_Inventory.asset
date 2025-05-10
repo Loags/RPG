@@ -25,11 +25,27 @@ MonoBehaviour:
       amount: 0
     - AllowedItems: []
       item:
-        name: 
-        Id: -1
-        buffs: []
-        tier: 6
-      amount: 0
+        name: TwoHandedWeapon_1
+        Id: 43
+        buffs:
+        - attribute: 3
+          value: 64
+          min: 60
+          max: 80
+        - attribute: 10
+          value: 17
+          min: 16
+          max: 20
+        - attribute: 8
+          value: 10
+          min: 10
+          max: 20
+        - attribute: 9
+          value: 8
+          min: 5
+          max: 10
+        tier: 5
+      amount: 1
     - AllowedItems: []
       item:
         name: 

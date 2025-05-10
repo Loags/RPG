@@ -725,11 +725,11 @@ PrefabInstance:
     - target: {fileID: -7671234276478003536, guid: 2c3eb1827661df744a123f133b643f05, type: 3}
       propertyPath: 'itemObjects.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: efcf264fd00b1864c8fe3313d3d43191, type: 2}
+      objectReference: {fileID: 11400000, guid: f367828bbf2ab7641b30d3324d3f7754, type: 2}
     - target: {fileID: -7671234276478003536, guid: 2c3eb1827661df744a123f133b643f05, type: 3}
       propertyPath: 'itemObjects.Array.data[1]'
       value: 
-      objectReference: {fileID: 11400000, guid: 31c69a7c65e1a374383eec14775f42df, type: 2}
+      objectReference: {fileID: 11400000, guid: faae7b0ae93072c46a2ffe29133297f3, type: 2}
     - target: {fileID: 493064426196471154, guid: 2c3eb1827661df744a123f133b643f05, type: 3}
       propertyPath: m_Name
       value: Interactable_Item_PickUp

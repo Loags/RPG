@@ -84,11 +84,27 @@ MonoBehaviour:
       - {fileID: 11400000, guid: 18bc5cfda506f0c4689a0239dd97c2e9, type: 2}
       - {fileID: 11400000, guid: 3c91b8f98efa2fe499dc99e58c9e76c6, type: 2}
       item:
-        name: 
-        Id: -1
-        buffs: []
-        tier: 6
-      amount: 0
+        name: TwoHandedWeapon_0
+        Id: 42
+        buffs:
+        - attribute: 3
+          value: 69
+          min: 60
+          max: 80
+        - attribute: 10
+          value: 19
+          min: 16
+          max: 20
+        - attribute: 8
+          value: 12
+          min: 10
+          max: 20
+        - attribute: 9
+          value: 5
+          min: 5
+          max: 10
+        tier: 5
+      amount: 1
   isBatchSaveMode: 0
   folderPath: Assets/_Project/ScriptableObjects/_Inventory/AllowedItems
   loadedScriptableObjects:

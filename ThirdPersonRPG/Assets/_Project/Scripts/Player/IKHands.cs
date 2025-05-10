@@ -75,7 +75,6 @@ namespace LB
                 return;
             }
 
-            // Stop any existing blend or pause coroutines
             StopBlendCoroutine();
             StopPauseCoroutine();
 
@@ -86,20 +85,19 @@ namespace LB
                 if (currentWeaponAttachPoint != null)
                 {
                     attachLeft = currentWeaponAttachPoint; // Set the target for OnAnimatorIK
-                    isUsed = true; // Mark IK as active
+                    isUsed = true;
                     blendCoroutine = StartCoroutine(_BlendIKWeight(true, delay, timeToBlend));
                 }
                 else
                 {
-                    // If no attach point found, ensure IK is off
                      Debug.LogWarning($"No IK attach point found for weapon {weapon}. Disabling IK.", this);
                     isUsed = false;
-                    blendCoroutine = StartCoroutine(_BlendIKWeight(false, 0f, 0.1f)); // Blend off quickly
+                    blendCoroutine = StartCoroutine(_BlendIKWeight(false, 0f, 0.1f));
                 }
             }
             else // Blending Off
             {
-                isUsed = false; // Mark IK as inactive
+                isUsed = false;
                 blendCoroutine = StartCoroutine(_BlendIKWeight(false, delay, timeToBlend));
             }
         }
@@ -180,11 +178,11 @@ namespace LB
 
             // Standardize the search for the attach point, assuming consistent naming
             // Modify "Attach_L" if your naming convention is different.
-            Transform attachPoint = rpgCharacterWeaponController.equippedWeaponModel.transform.Find("Attach_L");
+            Transform attachPoint = rpgCharacterWeaponController.equippedWeaponModel.transform.Find("WeaponPivot");
 
             if (attachPoint == null)
             {
-                 Debug.LogWarning($"Could not find IK attach point named 'Attach_L' in {rpgCharacterWeaponController.equippedWeaponModel.name}", rpgCharacterWeaponController.equippedWeaponModel);
+                 Debug.LogWarning($"Could not find IK attach point named 'WeaponPivot' in {rpgCharacterWeaponController.equippedWeaponModel.name}", rpgCharacterWeaponController.equippedWeaponModel);
             }
 
             return attachPoint;

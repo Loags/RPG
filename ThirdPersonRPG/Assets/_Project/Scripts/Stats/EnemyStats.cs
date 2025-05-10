@@ -22,8 +22,6 @@ namespace LB
         public float ExperienceValue => experienceValue;
         public float ExperienceRadius => experienceRadius;
 
-        public bool IsAlive => !IsCharacterDead;
-
         public void Awake()
         {
             animator = GetComponent<Animator>();
@@ -35,6 +33,7 @@ namespace LB
             SpawnLoot();
             DistributeExperience();
             DistributeCurrency();
+            Destroy(gameObject);
         }
 
         private void SpawnLoot()
@@ -51,13 +50,13 @@ namespace LB
                 if (template != null)
                 {
                     config = new LootDatabase.LootConfiguration();
-                    var field = typeof(LootDatabase.LootConfiguration).GetField("enemyType", 
-                        System.Reflection.BindingFlags.NonPublic | 
+                    var field = typeof(LootDatabase.LootConfiguration).GetField("enemyType",
+                        System.Reflection.BindingFlags.NonPublic |
                         System.Reflection.BindingFlags.Instance);
                     field?.SetValue(config, enemyType);
-                    
-                    field = typeof(LootDatabase.LootConfiguration).GetField("lootTemplate", 
-                        System.Reflection.BindingFlags.NonPublic | 
+
+                    field = typeof(LootDatabase.LootConfiguration).GetField("lootTemplate",
+                        System.Reflection.BindingFlags.NonPublic |
                         System.Reflection.BindingFlags.Instance);
                     field?.SetValue(config, template);
                 }
@@ -66,8 +65,8 @@ namespace LB
             if (config?.ExperienceSource != null)
             {
                 ExperienceDistributorManager.Instance.DistributeExperience(
-                    config.ExperienceSource.GetExperienceAmount(), 
-                    transform.position, 
+                    config.ExperienceSource.GetExperienceAmount(),
+                    transform.position,
                     LastDamageSource);
             }
             else
