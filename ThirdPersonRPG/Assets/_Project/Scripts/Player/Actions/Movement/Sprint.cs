@@ -1,3 +1,31 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:60128fa01354fc81999d45c71b4e510e09e80dec62672dc18ac8a9d89547dcc3
-size 1025
+using UnityEngine;
+
+namespace LB
+{
+    public class Sprint : MovementActionHandler<EmptyContext>
+    {
+        public Sprint(RPGCharacterMovementController movement) : base(movement)
+        {
+        }
+
+        public override bool CanStartAction(RPGCharacterController controller)
+        {
+            return controller.CanMove
+                   && controller.CanSprint
+                   && controller.rpgCharacterInputSystemController.HasSprintInput()
+                   && controller.MoveInput.sqrMagnitude > 0.1f
+                   && controller.MaintainingGround;
+        }
+
+        protected override void _StartAction(RPGCharacterController controller, EmptyContext context)
+        {
+            Debug.Log("Start Sprint Action");
+            movement.currentState = CharacterState.Sprint;
+        }
+
+        public override bool IsActive()
+        {
+            return movement.currentState != null && (CharacterState)movement.currentState == CharacterState.Sprint;
+        }
+    }
+}

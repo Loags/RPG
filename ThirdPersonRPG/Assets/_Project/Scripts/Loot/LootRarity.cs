@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5bb2be7d50f411f9f27e7c7c1675e2f6ff55be5a3a331e6583fdadd02ba820b7
-size 443
+using UnityEngine;
+
+namespace LB.Loot
+{
+    /// <summary>
+    /// Defines the possible item rarities using a flag-based enum.
+    /// Multiple rarities can be allowed at once.
+    /// </summary>
+    [System.Flags]
+    public enum LootRarity
+    {
+        None = 0,
+        Common = 1 << 0,
+        Uncommon = 1 << 1,
+        Rare = 1 << 2,
+        Epic = 1 << 3,
+        Legendary = 1 << 4,
+        Mythical = 1 << 5
+    }
+}

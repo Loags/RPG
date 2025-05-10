@@ -1,3 +1,45 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:21883328f5e35ec97fbe06d92692f80f50ecc112bfa4e5fdd3cdff72485adb98
-size 1565
+namespace LB
+{
+    public class Knockdown : MovementActionHandler<HitContext>
+    {
+        public Knockdown(RPGCharacterMovementController movement) : base(movement)
+        {
+        }
+
+        public override bool CanStartAction(RPGCharacterController controller)
+        {
+            return controller.CanAction;
+        }
+
+        protected override void _StartAction(RPGCharacterController controller, HitContext context)
+        {
+            int hitNumber = context.number;
+            UnityEngine.Vector3 direction = context.direction;
+            float force = context.force;
+            float variableForce = context.variableForce;
+
+            if (hitNumber == -1)
+            {
+                hitNumber = (int)AnimationVariations.Knockdowns.TakeRandom();
+                direction = AnimationData.HitDirection((KnockdownType)hitNumber);
+                direction = controller.transform.rotation * direction;
+            }
+            else
+            {
+                if (context.relative)
+                {
+                    direction = controller.transform.rotation * direction;
+                }
+            }
+
+            controller.Knockdown((KnockdownType)hitNumber);
+            movement.KnockbackForce(direction, force, variableForce);
+            movement.currentState = CharacterState.Knockdown;
+        }
+
+        public override bool IsActive()
+        {
+            return movement.currentState != null && (CharacterState)movement.currentState == CharacterState.Knockdown;
+        }
+    }
+}

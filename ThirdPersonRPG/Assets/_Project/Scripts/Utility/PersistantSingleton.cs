@@ -1,3 +1,43 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e7da3e45f72b832e8fa67e21540e8be42aa6a0d4d3a6a68d92029f75eb7c13dd
-size 1356
+using UnityEngine;
+
+namespace LB
+{
+    /// <summary>
+    /// A generic persistent singleton. Inherit from this class for a static Instance that persists across scene loads.
+    /// </summary>
+    /// <typeparam name="T">The type inheriting from PersistantSingleton.</typeparam>
+    [DefaultExecutionOrder(-50)]
+    public abstract class PersistantSingleton<T> : MonoBehaviour where T : MonoBehaviour
+    {
+        public static T Instance { get; private set; }
+        private static bool applicationIsQuitting = false;
+
+        protected virtual void Awake()
+        {
+            if (Instance == null)
+            {
+                Instance = this as T;
+                DontDestroyOnLoad(gameObject);
+            }
+            else if (Instance != this)
+            {
+                Debug.LogWarning($"[PersistantSingleton<{typeof(T)}>]: Duplicate instance found. Destroying the new one.");
+                Destroy(gameObject);
+            }
+        }
+
+        protected virtual void OnDestroy()
+        {
+            if (Instance == this)
+            {
+                Instance = null;
+            }
+        }
+
+        private void OnApplicationQuit()
+        {
+            // This flag prevents creating a new instance during application shutdown.
+            applicationIsQuitting = true;
+        }
+    }
+}

@@ -1,3 +1,30 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:db35b0942acace32d710756ea1138a8f96d67be5b50c0c5953e88f38cd33cd4e
-size 792
+using UnityEngine;
+
+namespace LB{
+    public class HitContext
+    {
+        public int number;
+        public Vector3 direction;
+        public float force;
+        public float variableForce;
+        public bool relative;
+
+        public HitContext()
+        {
+            number = -1;
+            direction = Vector3.zero;
+            force = 8f;
+            variableForce = 4f;
+            relative = true;
+        }
+
+        public HitContext(int number, Vector3 direction, float force = 8f, float variableForce = 4f, bool relative = true)
+        {
+            this.number = number;
+            this.direction = direction;
+            this.force = force;
+            this.variableForce = variableForce;
+            this.relative = relative;
+        }
+    }
+}

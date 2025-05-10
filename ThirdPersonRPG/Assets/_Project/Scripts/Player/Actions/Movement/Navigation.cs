@@ -1,3 +1,26 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e7cc1d019babd899ae0037238c18f66d5b07beb6eb4ec3eb1d47b56d2c7de2e8
-size 910
+using UnityEngine;
+
+namespace LB{
+    public class Navigation : BaseActionHandler<Vector3>
+    {
+        RPGCharacterNavigationController navigation;
+
+        public Navigation(RPGCharacterNavigationController navigation)
+        { this.navigation = navigation; }
+
+        public override bool CanStartAction(RPGCharacterController controller)
+        { return navigation != null; }
+
+        public override bool CanEndAction(RPGCharacterController controller)
+        { return navigation != null && navigation.isNavigating; }
+
+        protected override void _StartAction(RPGCharacterController controller, Vector3 context)
+        { navigation.MeshNavToPoint(context); }
+
+        public override bool IsActive()
+        { return navigation.isNavigating; }
+
+        protected override void _EndAction(RPGCharacterController controller)
+        { navigation.StopNavigating(); }
+    }
+}

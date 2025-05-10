@@ -1,3 +1,27 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f0fabcf4e5347f305a4104e752d7698dcc3a59cea19f6958569da197cc52968a
-size 665
+using UnityEngine;
+
+namespace LB
+{
+    public class SlowTime : BaseActionHandler<float>
+    {
+        public override bool CanStartAction(RPGCharacterController controller)
+        {
+            return !active;
+        }
+
+        public override bool CanEndAction(RPGCharacterController controller)
+        {
+            return active;
+        }
+
+        protected override void _StartAction(RPGCharacterController controller, float context)
+        {
+            Time.timeScale = context;
+        }
+
+        protected override void _EndAction(RPGCharacterController controller)
+        {
+            Time.timeScale = 1f;
+        }
+    }
+}

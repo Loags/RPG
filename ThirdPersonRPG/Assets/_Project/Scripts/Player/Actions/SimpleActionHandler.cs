@@ -1,3 +1,36 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9ad422d34abe80b3b7dcfe372459b0421fcbc7740a65b73a3a1e1a8f1046eba5
-size 1070
+using System;
+
+namespace LB
+{
+    /// <summary>
+    /// SimpleActionHandler is used when you need a handler with an off and on state. Its only
+    /// start condition is that it's not "on", and its only end condition is that its not "off",
+    /// like a light switch. It has no context.
+    /// </summary>
+    public class SimpleActionHandler : BaseActionHandler<EmptyContext>
+    {
+        public SimpleActionHandler(Action onStart, Action onEnd)
+        {
+            this.AddStartListener(onStart);
+            this.AddEndListener(onEnd);
+        }
+
+        public override bool CanStartAction(RPGCharacterController controller)
+        {
+            return !active;
+        }
+
+        public override bool CanEndAction(RPGCharacterController controller)
+        {
+            return active;
+        }
+
+        protected override void _StartAction(RPGCharacterController controller, EmptyContext context)
+        {
+        }
+
+        protected override void _EndAction(RPGCharacterController controller)
+        {
+        }
+    }
+}

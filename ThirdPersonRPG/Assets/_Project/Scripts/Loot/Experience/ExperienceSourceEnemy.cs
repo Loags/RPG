@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2433296c53c5b9bf612a3ccd2e2754e4331f412264f006dd803691004c9c36c0
-size 865
+using UnityEngine;
+
+namespace LB.Loot.Experience
+{
+    /// <summary>
+    /// Experience source specifically for enemies.
+    /// Allows for enemy-specific experience scaling and configuration.
+    /// </summary>
+    [CreateAssetMenu(fileName = "EnemyExperienceSource", menuName = "RPG/Experience/EnemyExperienceSource")]
+    public class ExperienceSourceEnemy : ExperienceSource
+    {
+        [SerializeField] private float levelScaling = 1f;
+        [SerializeField] private EnemyType enemyType;
+        
+        /// <summary>
+        /// Gets the final experience amount after applying enemy-specific scaling.
+        /// </summary>
+        /// <returns>The calculated experience amount.</returns>
+        public override float GetExperienceAmount()
+        {
+            return base.GetExperienceAmount() * levelScaling;
+        }
+    }
+} 

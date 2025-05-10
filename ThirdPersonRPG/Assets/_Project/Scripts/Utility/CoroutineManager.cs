@@ -1,3 +1,28 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:fdfb8e2684f7d22b062eaefae106e6665691a72829fd5ee7e321ace1f8a1e598
-size 949
+using System.Collections;
+using UnityEngine;
+
+namespace LB_Manager_Coroutine
+{
+    public static class CoroutineManager
+    {
+        public static void InitializeCoroutine(ref Coroutine _coroutine, IEnumerator _enumerator, MonoBehaviour behaviour)
+        {
+            if (_coroutine != null)
+            {
+                behaviour.StopCoroutine(_coroutine);
+                _coroutine = null;
+            }
+            _coroutine = behaviour.StartCoroutine(_enumerator);
+
+            //Debug.Log("[Started Coroutine]  --->  " + _enumerator.ToString());
+        }
+        public static void TerminateCoroutine(ref Coroutine _coroutine, IEnumerator _enumerator, MonoBehaviour behaviour)
+        {
+            if (_coroutine == null) return;
+
+            behaviour.StopCoroutine(_coroutine);
+            _coroutine = null;
+            //Debug.Log("[Stopped Coroutine]  --->  " + _enumerator.ToString());
+        }
+    }
+}

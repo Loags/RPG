@@ -1,3 +1,28 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:89ec008669a4d9625ee718fcf86b8f23f48168a578bf0e172ee8f2dc0e5b5511
-size 861
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9b04df1d67429646b0dfc1118d24e42, type: 3}
+  m_Name: DefaultLoot
+  m_EditorClassIdentifier: 
+  templateName: DefaultLoot
+  allowedLootCategories: -1
+  itemDropRange: {x: 0, y: 1}
+  lootTier: 1
+  currencyDistribution: {fileID: 11400000, guid: 7ef066a6ad43a094f993bfc1a71c4c2b, type: 2}
+  experienceSource: {fileID: 11400000, guid: 992fd06c79be3c6408bf6c5406bdd8e1, type: 2}
+  useCustomDropRates: 0
+  customDropRates:
+    commonDropRate: 50
+    uncommonDropRate: 30
+    rareDropRate: 10
+    epicDropRate: 5
+    legendaryDropRate: 3
+    mythicalDropRate: 2

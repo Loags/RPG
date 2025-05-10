@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3c973392313ca4dffa0b384430f5d8c6078b4ded1a5919ab8788e67eb7717aed
-size 785
+namespace LB
+{
+    public class Jump : MovementActionHandler<EmptyContext>
+    {
+        public Jump(RPGCharacterMovementController movement) : base(movement)
+        {
+        }
+
+        public override bool CanStartAction(RPGCharacterController controller)
+        {
+            return (movement.canJump || movement.canDoubleJump) && controller.MaintainingGround && controller.CanAction;
+        }
+
+        protected override void _StartAction(RPGCharacterController controller, EmptyContext context)
+        {
+            movement.currentState = CharacterState.Jump;
+        }
+
+        public override bool IsActive()
+        {
+            return movement.currentState != null && (CharacterState)movement.currentState == CharacterState.Jump;
+        }
+    }
+}

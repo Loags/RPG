@@ -1,3 +1,28 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:549da61ee7901ad3e6285a1084b9000a774b6dda47ef89ea972f148ae1df5d87
-size 667
+using UnityEngine;
+
+namespace LB.Loot.Currency
+{
+    /// <summary>
+    /// Represents a specific amount of a currency type
+    /// </summary>
+    [System.Serializable]
+    public struct CurrencyAmount
+    {
+        [SerializeField] private CurrencyType type;
+        [SerializeField] private int amount;
+
+        public CurrencyType Type => type;
+        public int Amount => amount;
+
+        public CurrencyAmount(CurrencyType type, int amount)
+        {
+            this.type = type;
+            this.amount = amount;
+        }
+
+        public override string ToString()
+        {
+            return $"{amount} {type}";
+        }
+    }
+} 

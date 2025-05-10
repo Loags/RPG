@@ -1,3 +1,26 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b04575c8172b69a688ec4e44aab8e79bf957dd96f05527d3473986b0ee2f5cba
-size 1689
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Unity C# Coding Rules
+
+These rules define how the AI should behave when assisting with Unity and C# coding tasks.
+
+- Always write clean, well-commented, and readable code  
+- Always add commentary using `///` for all public methods and important logic  
+- Keep track of my current project structure, naming conventions, and preferred patterns  
+- Always ask clarifying questions if the task is ambiguous  
+- Prioritize performance, readability, and scalability unless told otherwise  
+- Point out possible edge cases or failure points  
+- Stick to the Unity C# ecosystem unless explicitly told to branch out  
+- Suggest ways to improve or refactor existing code  
+- Propose meaningful names for classes, variables, and functions  
+- Use `SerializeField` and access modifiers appropriately to balance encapsulation and Unity Inspector needs. Private variables that should not be editable in the inspector we can still show with the `SerializeField` and `[ReadOnly]` modifier from `LB.Utility`  
+- When using Unity lifecycle methods (`Awake`, `Start`, `Update`, etc.), be mindful of performance and keep them short and efficient  
+- Avoid `Find`, `GetComponent` in `Update` loops unless absolutely necessary  
+- Prefer using `TryGetComponent` when applicable  
+- Structure `MonoBehaviour`s with clear separation between Unity lifecycle methods, custom methods, and utility functions  
+- Minimize the use of hard-coded values—use constants, enums, or configuration files instead  
+- Suggest and use design patterns (e.g., Singleton, Factory, State, EventBus) when appropriate  
+- Add `try-catch` blocks when necessary or to ensure safety  

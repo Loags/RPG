@@ -1,3 +1,30 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:65c25cb8c9ebc235ee3062ed20c494fd85b8b07b7b8b320f5f3dfb07ed1dbefc
-size 1100
+using UnityEngine;
+using UnityEngine.EventSystems;
+
+namespace LB.Inventory
+{
+    public class StaticInterface : UserInterface
+    {
+        public GameObject[] slots;
+
+        protected override void CreateSlots()
+        {
+            slotsOnInterface = new();
+            for (int i = 0; i < inventory.GetSlots.Length; i++)
+            {
+                GameObject obj = slots[i];
+
+                AddEvent(obj, EventTriggerType.PointerClick, delegate { OnSlotClick(obj); });
+                AddEvent(obj, EventTriggerType.PointerEnter, delegate { OnEnter(obj); });
+                AddEvent(obj, EventTriggerType.PointerExit, delegate { OnExit(obj); });
+                AddEvent(obj, EventTriggerType.BeginDrag, delegate { OnDragStart(obj); });
+                AddEvent(obj, EventTriggerType.EndDrag, delegate { OnDragEnd(obj); });
+                AddEvent(obj, EventTriggerType.Drag, delegate { OnDrag(obj); });
+
+                inventory.GetSlots[i].slotDisplay = obj;
+
+                slotsOnInterface.Add(obj, inventory.GetSlots[i]);
+            }
+        }
+    }
+}

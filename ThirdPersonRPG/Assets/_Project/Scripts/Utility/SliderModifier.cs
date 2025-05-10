@@ -1,3 +1,27 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:81a6e82999c28a889ee400eb259284df0ea11d8bbf7c1d9b4f8080109230b4dc
-size 627
+using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
+
+[RequireComponent(typeof(Slider))]
+public class SliderModifier : MonoBehaviour
+{
+    [SerializeField] protected TMP_Text sliderDisplayText;
+
+    protected Slider slider;
+
+    public virtual void Awake()
+    {
+        slider = GetComponent<Slider>();
+    }
+
+    public virtual void Start()
+    {
+        UpdateSliderText(slider.value);
+    }
+
+    public virtual void UpdateSliderText(float _value) // Called on SliderChanged 
+    {
+        float roundedVal = Mathf.Round(_value * 100f);
+        sliderDisplayText.text = roundedVal + "%";
+    }
+}

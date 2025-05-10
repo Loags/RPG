@@ -1,3 +1,32 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e0fa15089b0babdaa0a637fb142fe9b88aa27a01fcaa8bc459f6cc020488f012
-size 771
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ed93029bd71cee4786be3a0364a35d3, type: 3}
+  m_Name: OneHandedWeapon_2
+  m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: 524ed6dea1064b34ebae5bec9b2b3f70, type: 3}
+  characterDisplay: {fileID: 0}
+  stackable: 0
+  stackAmount: 1
+  description: OneHandedWeapon_2
+  data:
+    name: OneHandedWeapon_2
+    Id: 30
+    buffs:
+    - attribute: 6
+      value: 0
+      min: 5
+      max: 16
+    tier: 6
+  boneNames: []
+  type: 0
+  equipmentType: 0
+  weaponType: 1

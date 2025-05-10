@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5f22fcf83f7b2bfa1eeb93ac66a0f2dcaaf3e52288e5ae83adfa04c812b7ff13
-size 679
+using TMPro;
+using UnityEngine;
+
+namespace LB.Inventory
+{
+    public class InventorySlotDescription : MonoBehaviour
+    {
+        [SerializeField] private TMP_Text descriptionHeader;
+        [SerializeField] private TMP_Text descriptionContent;
+
+        public void Initialize(string _descriptionHeader, string _descriptionContent)
+        {
+            descriptionHeader.text = _descriptionHeader;
+            descriptionContent.text = _descriptionContent;
+
+            if (descriptionHeader.text == string.Empty) descriptionHeader.enabled = false;
+            if (descriptionContent.text == string.Empty) descriptionContent.enabled = false;
+        }
+    }
+}

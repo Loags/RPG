@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f0d6342b3da106b2770cbe1f587ad1c2ac7931c5e59a02f29ad96f8adc3f11d2
-size 462
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a1d7a20e02f7814a965cda70d528012, type: 3}
+  m_Name: ConsoleCommand_SpawnItem
+  m_EditorClassIdentifier: 
+  commandWord: spawn_item
+  possibleCommands: []

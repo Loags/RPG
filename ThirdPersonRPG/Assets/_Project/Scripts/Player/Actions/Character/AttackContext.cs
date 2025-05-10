@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:638b8370287ecd9bfbcef3d75ed8f10aed9aaf725b15eefea089e0b23e7f8270
-size 335
+namespace LB
+{
+    public class AttackContext
+    {
+        public string type;
+        public Side Side;
+        public int number;
+
+        public AttackContext(string type, Side side, int number = -1)
+        {
+            this.type = type;
+            Side = side;
+            this.number = number;
+        }
+    }
+}

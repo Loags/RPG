@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:facb72d38740574ea8fb7e1f089e1f96cb144e696fd133617a7a7bfff7dfc2d1
-size 497
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d4329fa2d9e7c64696daf4e1a76dc6e, type: 3}
+  m_Name: Armor_Chest
+  m_EditorClassIdentifier: 
+  slotType: 1
+  itemType: 0
+  equipmentType: 1
+  weaponType: 4
+  armorType: 1
+  accessoryType: 3
